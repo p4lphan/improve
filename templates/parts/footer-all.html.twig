@@ -1,0 +1,13 @@
+<footer id="footer">
+    <div class="container">
+        <div class="row gtr-200">
+            <div class="col-12">
+                {% block about %}{% include 'parts/footer-about.html.twig' %}{% endblock %}
+            </div>
+            <div class="col-12">
+                {% block contact %}{% include 'parts/footer-contact.html.twig' %}{% endblock %}
+            </div>
+        </div>
+        {% block copyright %}{% include 'parts/footer-copyright.html.twig' %}{% endblock %}                
+    </div>
+</footer>

@@ -1,0 +1,5 @@
+{% extends 'generic/generic-table.html.twig' %}
+
+{% block champs %}
+    <td>{{ item.content|length>50 ? item.content|slice(0,50)~'...' : item.content }}</td><td>{{ item.getIdType.name }}</td><td>{% if item.valid==1 and item.getIdType.valid==1 %}{{'Publiée'}}{% elseif item.getIdType.valid==0 %}{{'Masquée, catégorie désactivée'}}{% else %}{{'<i>Brouillon</i>'}}{% endif %}</td><td>{{ item.getUser.username }}</td><td>{{ item.createDate|e|date(app_config.date_format)}}</td>
+{% endblock %} 

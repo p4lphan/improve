@@ -1,0 +1,13 @@
+<div class="col-3 col-6-medium col-12-small">
+        <!-- Feature -->
+                <section class="box feature">
+                        <a href="{{path("publication_show",{"id":publication.id})}}" class="image featured"><img src="{{asset(publication.filepath|e)}}" alt="" /></a>                    
+                        <h3><a href="{{path("publication_show",{"id":publication.id})}}">{{publication.name|e}}</a></h3>
+                        <p>{{publication.content|length>57 ? publication.content|slice(0,57)~'...' : publication.content}}</p>
+                        <ul class="meta flex">
+                                <li class="icon fa-clock-o">{{ publication.createDate|e|date(app_config.date_format)}}</li>
+                                <li class="icon fa-user-o">{{publication.author|e}}</li>
+                                <li class="icon fa-info">{{publication.getIdType.name|e}}</li>
+                        </ul>                       
+                </section>
+</div>

@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ app_config.app_name}} : Accueil{% endblock %}
+{% block banner %}{% include 'parts/header-banner.html.twig'  with {'bannerMessage':'Nous vous souhaitons une bonne visite'} %}{% endblock %}
+{% block main %}{% include 'accueil/parts-main.html.twig' %}{% endblock %}

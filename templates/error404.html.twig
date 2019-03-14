@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app_config.app_name}} : Erreur 404 !{% endblock %}
+{% block banner %}{% endblock %}
+{% block main %}
+<section id="main">
+    <div class="container">
+        <h2>Page introuvable</h2>
+        <p>
+            La page demandée n'a pas pu être affichée. Vérifier si vous n'avez pas fait une erreur de frappe 
+            ou <a href="{{ path('homepage') }}">retourner à la page d'accueil</a>.
+        </p>
+    </div>
+</section>
+{% endblock %}

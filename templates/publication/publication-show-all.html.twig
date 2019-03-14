@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ app_config.app_name }} : Publications{% endblock %}
+{% block banner %}{% include 'parts/header-banner.html.twig'  with {'bannerMessage':'Pour voir les publications, cliquer ici'} %}{% endblock %}
+{% block main %}{% include 'publication/parts/parts-indicateurs.html.twig' %}{% endblock %}

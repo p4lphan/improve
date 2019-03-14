@@ -1,0 +1,42 @@
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <article class="box page-content">
+                        {% if publication %}
+                            <header>
+                                    <h2>{{ publication.name}}</h2>
+                                    <p>{{ publication.content}}</p>
+                                    <ul class="meta">
+                                            <li class="icon fa-clock-o">{{ publication.createDate|e|date(app_config.date_format)}}</li>
+                                            <li class="icon fa-comments">{{ publication.author}}</li>
+                                            <li class="icon fa-info">{% if publication.valid==1 and publication.getIdType.valid==1%}{{ 'Publiée'}}{% elseif publication.valid==1 and publication.getIdType.valid==0%}{{"Masquée car la catégorie "~publication.getIdType.name~" n'est pas activée"}}{% else %}{{'Brouillon'}}{% endif%}</li>
+                                    </ul>
+                                     <a href="#" class="image featured"><img src="{{ asset(publication.filepath|e) }}" alt="" /></a>
+                            </header>
+                            {%else%}
+                                <header>
+                                    <h2>{{ 'Publication inexistante !'}}</h2>
+                                </header>
+                            {%endif%}  
+                    </article>
+                     <div class="col-12">
+                            {% if edit %}
+                                <ul class="actions">
+                                        <li><a href="{{ path("publication_update",{"id":publication.id|e})}}" class="button large" title="Modifier">Modifier</a></li>
+                                        <li><a href="{{ path('publication_config_all') }}#main" class="button alt large" title="Retour">Retour</a></li>
+                                </ul>
+                            {% else%}
+                                <ul class="actions">
+                                        <li><a href="{{ path("publication_update",{"id":publication.id|e})}}" class="button large" title="Modifier">Modifier</a></li>
+                                        <li><a href="{{ path("publication_delete",{"id":publication.id|e})}}" class="button large" title="Modifier">Supprimer</a></li>
+                                        <li><a href="{{ path('publication_show_all') }}#main" class="button alt large" title="Retour">Retour</a></li>
+                                </ul>
+                            {% endif%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

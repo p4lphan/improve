@@ -1,0 +1,5 @@
+{% extends 'generic/generic-table.html.twig' %}
+
+{% block champs %}
+    <td>{{ item.username }}</td><td>{{ item.roles|join(', ') }}</td><td>{{ item.valid==1 ? 'Autorisé' : 'Bloqué' }}</td><td>{{ item.createDate|e|date(app_config.date_format)}}</td>
+{% endblock %} 

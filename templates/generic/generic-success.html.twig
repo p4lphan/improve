@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ app_config.app_name }} : {{successTitle}}{% endblock %}
+{% block banner %}{% endblock %}
+{% block main %}
+    <section id="main">
+        <div class="container">
+            <header>
+                <h2>{{successTitle}}</h2>
+                <p></p>
+            </header>
+        </div>
+        <ul class="actions">
+            {% if entityPath!="" %}
+            <li><a href="{{ path(entityPath) }}#main" class="button  large" title="Voir">{{ seeSuccessEntity }}</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+             {% if successPath!="" %}
+                <li><a href="{{ path(successPath) }}#main" class="button alt large" title="Retour">Retour</a></li>
+            {% endif %}
+            {% endif %}
+        </ul>
+    </section>
+{% endblock %}

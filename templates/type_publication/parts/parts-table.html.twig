@@ -1,0 +1,5 @@
+{% extends 'generic/generic-table.html.twig' %}
+
+{% block champs %}
+    <td>{{ item.name|e}}</td><td>{% if item.valid==1 %}{{'Activée'}}{% else %}{{ 'Désactivée' }}{% endif %}</td>
+{% endblock %}

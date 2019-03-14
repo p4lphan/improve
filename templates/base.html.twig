@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Test Application{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        {% block stylesheets %}            
+            <link href="{{ asset('css/main.css') }}" rel="stylesheet" /> 
+            <link href="{{ asset('css/tableau-custom.css') }}" rel="stylesheet" />      
+        {% endblock %}
+    </head>
+    <body class="homepage is-preload">
+	<div id="page-wrapper">
+            {% block nav %}{% include 'parts/header-nav.html.twig' %}{% endblock %}
+            {% block header %}{% include 'parts/header-identity.html.twig' %}{% endblock %}            
+            {% block banner %}{% include 'parts/header-banner.html.twig' %}{% endblock %}
+            {% block main %}{% endblock %}
+            <footer>
+                {% block footer %}{% include 'parts/footer-all.html.twig' %}{% endblock %}
+            </footer>
+            {% block javascripts %}
+                <script src="{{ asset('js/jquery.min.js') }}"></script>
+                <script src="{{ asset('js/jquery.dropotron.min.js') }}"></script>
+                <script src="{{ asset('js/jquery.scrolly.min.js') }}"></script>
+                <script src="{{ asset('js/browser.min.js') }}"></script>
+                <script src="{{ asset('js/breakpoints.min.js') }}"></script>
+                <script src="{{ asset('js/util.js') }}"></script>
+                <script src="{{ asset('js/main.js') }}"></script>
+            {% endblock %}
+        </div>
+    </body>
+</html>

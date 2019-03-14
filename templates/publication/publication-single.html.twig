@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ app_config.app_name }} : {{publication.content}}{% endblock %}
+{% block banner %}{% endblock %}
+{% block main %}{% include 'publication/parts/parts-single.html.twig' %}{% endblock %}

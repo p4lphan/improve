@@ -1,0 +1,25 @@
+<table>
+{% for header in headers %}
+    <th>{{ header }}</th>
+{% endfor %}
+{% for keys, item in entities %}
+        <tr>
+            {% block champs %}
+            {% endblock %}
+        <td>
+        {% block button %}
+            {% if options[0]==1 %}
+                <a class="button-gris" href="{{path(pageName~"_see",{"id":item.id|e})}}" title="Voir {{friendlyClassName}}"><i class="fas fa-search" style="color:#b1ddab;"></i></a>
+            {% endif %}
+
+            {% if options[1]==1 %}
+                <a class="button-gris" href="{{path(pageName~"_update",{"id":item.id|e})}}" title="Modifier {{friendlyClassName}}"><i class="fas fa-edit" style="color:#b1ddab;"></i></a>
+            {% endif %}
+
+            {% if options[2]==1 %}
+               <a class="button-gris" href="{{path(pageName~"_delete",{"id":item.id|e})}}" title="Supprimer {{friendlyClassName}}"><i class="fas fa-trash" style="color:#b1ddab;"></i></a>
+            {% endif %}
+        {% endblock %}
+        </td></tr>
+{% endfor %}
+</table>
