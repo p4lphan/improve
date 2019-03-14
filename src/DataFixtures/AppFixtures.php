@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
         $publication->setName('Critique');
         $publication->setContent("C'est le bossu qui se moque du chameau");
         $publication->setIdType($typePublication);
-        $publication->setAuthor('inconnu');
+        $publication->setAuthor('Le bossu');
         $publication->setCreateDate(new \DateTime);
         $publication->setValid(true);
         
