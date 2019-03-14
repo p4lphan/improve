@@ -27,7 +27,7 @@ class UserFixtures extends Fixture
         $user->setCreateDate(new \DateTime('now'));
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
-             'password'
+             'password31'
         ));
         $user->setRoles(array('ROLE_ADMIN'));
         
