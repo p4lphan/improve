@@ -31,7 +31,7 @@ class UserFixtures extends Fixture
         $user->setCreateDate(new \DateTime('now'));
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
-             'password31'
+             'password'
         ));
         $user->setRoles(array('ROLE_ADMIN'));
         $manager->persist($user);
