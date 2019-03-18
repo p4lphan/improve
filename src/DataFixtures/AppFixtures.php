@@ -6,7 +6,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\TypePublication;
 use App\Entity\Publication;
-use App\Entity\User;
 use App\DataFixtures\UserFixtures;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
@@ -16,7 +15,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     
     public function load(ObjectManager $manager)
     {
-       
+        $user = $this->getReference(UserFixtures::ADMIN_USER_REFERENCE);
         $typePublication = new TypePublication();
         $typePublication->setName('Citation');
         $typePublication->setValid(true);
@@ -29,7 +28,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
         $publication->setIdType($typePublication);
         $publication->setAuthor('inconnu');
         $publication->setCreateDate(new \DateTime);
-        $publication->setUser($this->getReference(UserFixtures::ADMIN_USER_REFERENCE));
+        $publication->setUser($user);
         $publication->setFilepath('images/pic01.jpg');
         $publication->setValid(true);
         $manager->persist($publication);
@@ -40,7 +39,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
         $publication2->setIdType($typePublication);
         $publication2->setAuthor('inconnu');
         $publication2->setCreateDate(new \DateTime);
-        $publication2->setUser($this->getReference(UserFixtures::ADMIN_USER_REFERENCE));
+        $publication2->setUser($user);
         $publication2->setFilepath('images/pic02.jpg');
         $publication2->setValid(true);
         $manager->persist($publication2);
